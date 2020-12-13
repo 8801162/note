@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2020.12.13 과제2 사칙연산맞추기</title>
+</head>
+<body>
+    <script>
+    'use strict';
+    /*
+    2. 사칙연산 문제 푸는 게임을 만들어보자.
+    (랜덤을 통해 숫자 및 연산자를 표현, 10문제를 맞추면 게임이 종료되도록 함)
+    프롬프트
+    5 * 3 = ? 15
+    맞았습니다. 또는 틀렸습니다.
+
+    3 + 4 = ? 7
+    맞았습니다. (스코어 : 2)
+    */
+    let point = 0;
+    while(true)
+    {
+        //문제만들기
+        const num1 = Math.floor(Math.random() * 9) + 1; //1~9사이 난수
+        const num2 = Math.floor(Math.random() * 9) + 1; //1~9사이 난수
+        const oper = Math.floor(Math.random() * 4);     //0~3사이 난수
+        let collect;
+        let user_ans;
+
+        switch(oper)
+        {
+            case 0: // +
+            user_ans = Number(window.prompt(`${num1} + ${num2} = ?`));
+                if(user_ans == num1 + num2)
+                    collect = true;
+                else 
+                    collect = false;
+                    //document.write(`${num1} + ${num2} = ${user_ans} ${collect}<br>`);
+            break;
+            case 1: // -
+            user_ans = Number(window.prompt(`${num1} - ${num2} = ?`));
+                if(user_ans == num1 - num2)
+                    collect = true;
+                else 
+                    collect = false;
+                    //document.write(`${num1} - ${num2} = ${user_ans} ${collect}<br>`);
+            break;
+            case 2: // *
+            user_ans = Number(window.prompt(`${num1} * ${num2} = ?`));
+                if(user_ans == num1 * num2)
+                    collect = true;
+                else 
+                    collect = false;
+                    //document.write(`${num1} * ${num2} = ${user_ans} ${collect}<br>`);
+            break;
+            case 3: // /
+            user_ans = Number(window.prompt(`${num1} / ${num2} = ?`));
+                if(user_ans == num1 / num2)
+                    collect = true;
+                else 
+                    collect = false;
+                    //document.write(`${num1} / ${num2} = ${user_ans} ${collect}<br>`);
+            break;
+        }
+        if(collect) 
+        {
+            point += 1;
+            window.alert(`맞았습니다. Point:${point}`);
+        }
+        else
+            window.alert(`틀렸습니다. Point:${point}`);
+        if(point >= 3) break;
+    }
+    </script>
+
+</body>
+</html>

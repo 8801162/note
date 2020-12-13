@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+</head>
+<body>
+    <h2>가위바위보 게임</h2>
+    <script>
+        /*
+        1. 가위 바위 보 게임을 만들어보자.
+        프롬프트
+        가위 바위 보 중 하나를 선택하세요. 가위
+        (단, 유저가 이길때까지 게임을 계속 진행)
+
+        출력
+        유저 : 가위
+        컴퓨터 : 보
+        유저 승 !
+        (프로그램을 종료합니다.)
+
+        유저 : 가위
+        컴퓨터 : 주먹
+        컴퓨터 승 !
+        */
+
+        'use strict';
+        // 0 : 가위
+        // 1 : 바위
+        // 2 : 보
+        while(true)
+        {
+            const user_hand = prompt("가위, 바위, 보를 입력해주세요.");
+            const npc_number = Math.floor(Math.random() * 3);
+
+            console.log(npc_number);
+            
+            let npc_hand;
+            switch(npc_number)
+            {
+                case 0:
+                    npc_hand = "가위";
+                break;
+                case 1:
+                    npc_hand = "바위";
+                break;
+                case 2:
+                    npc_hand = "보";
+                break;
+            }
+            let user_number;
+            switch(user_hand)
+            {
+                case "가위":
+                    user_number = 0;
+                break;
+                case "바위":
+                    user_number = 1;
+                break;
+                case "보":
+                    user_number = 2;
+                break;
+            }
+            
+            document.write(`<p>유저 : ${user_hand }</p>`)
+            document.write(`<p>컴퓨터 : ${npc_hand }</p>`)
+
+            if(user_number == npc_number)
+                document.write("비겼습니다.");
+            else if(user_number - npc_number == -2)
+            {
+                document.write("이겼습니다.");
+                break;
+            }
+            else if(user_number - npc_number == 2)
+                document.write("졌습니다.");
+            else if(user_number > npc_number)
+            {
+                document.write("이겼습니다.");
+                break;
+            }
+            else
+                document.write("졌습니다.");
+        }
+    </script>
+</body>
+</html>
