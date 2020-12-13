@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주사위 게임</title>
+</head>
+<body>
+    <h2>주사위 게임</h2>
+    <script>
+        'use strict';
+        const user_number = Number(window.prompt("1~6 사이의 숫자를 입력해주세요."));
+        const npc_number = Math.floor(Math.random() * 6) + 1;
+
+        if(user_number <= 0 || user_number >= 7)
+        {
+            window.alert("정확한 숫자를 입력하세요.");
+        }
+        else
+        {
+            document.write(`<p>입력한 숫자 : ${user_number}</p>`);
+            document.write(`<p>주사위 숫자 : ${npc_number}</p>`);
+            if(user_number == npc_number)
+                document.write("맞았습니다.");
+            else 
+                document.write("틀렸습니다.");
+        }
+
+    </script>
+</body>
+</html>

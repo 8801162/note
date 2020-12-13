@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+</head>
+<body>
+    <h2>가위바위보 게임</h2>
+    <script>
+        'use strict';
+        // 0 : 가위
+        // 1 : 바위
+        // 2 : 보
+        const user_hand = prompt("가위, 바위, 보를 입력해주세요.");
+        const npc_number = Math.floor(Math.random() * 3);
+
+        console.log(npc_number);
+        
+        let npc_hand;
+        switch(npc_number)
+        {
+            case 0:
+                npc_hand = "가위";
+            break;
+            case 1:
+                npc_hand = "바위";
+            break;
+            case 2:
+                npc_hand = "보";
+            break;
+        }
+        
+        document.write(`<p>유저 : ${user_hand }</p>`)
+        document.write(`<p>컴퓨터 : ${npc_hand }</p>`)
+
+        let result;
+
+        switch(user_hand)
+        {
+            case "가위":
+                switch(npc_hand)
+                {
+                    case "가위":
+                        result = "비겼습니다.";
+                    break;
+                    case "바위":
+                        result = "졌습니다.";
+                    break;
+                    case "보":
+                        result = "이겼습니다.";
+                    break;
+                }
+            break;
+            case "바위":
+                switch(npc_hand)
+                {
+                    case "가위":
+                        result = "이겼습니다.";
+                    break;
+                    case "바위":
+                        result = "비겼습니다.";
+                    break;
+                    case "보":
+                        result = "졌습니다.";
+                    break;
+                }
+            break;
+            case "보":
+                switch(npc_hand)
+                {
+                    case "가위":
+                        result = "졌습니다.";
+                    break;
+                    case "바위":
+                        result = "이겼습니다.";
+                    break;
+                    case "보":
+                        result = "비겼습니다.";
+                    break;
+                }
+            break;
+        }
+        document.write(result);
+    </script>
+</body>
+</html>
